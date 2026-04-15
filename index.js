@@ -23,6 +23,6 @@ const GameBoard = (() => {
             board[i] = ""
         }
     }
-})
+})()
 
 // GameController function for marking the board with the sign and futher checking for the winner
