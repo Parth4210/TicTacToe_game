@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+    --bg-color: #0f172a;
+    --text-color: #f8fafc;
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --accent: #10b981;
+    --board-bg: #1e293b;
+    --square-bg: #334155;
+    --square-hover: #475569;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #3b82f6, #10b981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 110px);
+    grid-template-rows: repeat(3, 110px);
+    gap: 12px;
+    background-color: var(--board-bg);
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    margin: 0 auto 2rem auto;
+}
+
+.square {
+    background-color: var(--square-bg);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    line-height: 1;
+}
+
+.square:empty:hover {
+    background-color: var(--square-hover);
+    transform: scale(1.05);
+}
+
+.square[data-mark="X"] {
+    color: #ef4444;
+}
+
+.square[data-mark="O"] {
+    color: #3b82f6;
+}
+
+#controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    max-width: 550px;
+}
+
+input[type="text"] {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1e293b;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    flex: 1;
+    min-width: 150px;
+    transition: box-shadow 0.2s ease;
+}
+
+input[type="text"]::placeholder {
+    color: #94a3b8;
+}
+
+input[type="text"]:focus {
+    box-shadow: 0 0 0 2px var(--primary);
+}
+
+button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#restart-button {
+    background-color: #64748b;
+}
+
+#restart-button:hover {
+    background-color: #475569;
+}
+
+#message {
+    font-size: 1.5rem;
+    font-weight: 600;
+    min-height: 2rem;
+    text-align: center;
+    color: var(--accent);
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
